@@ -10,8 +10,11 @@ Feature: Transactions page
     When I clear "search bar input" field
     And I fill in "15610359283786884938L" to "search bar input" field
     When I click "search bar button"
-    And I wait 1 seconds
+    And I wait 2 seconds
     Then I should see 25 rows
+    When I click "send to address"
+    And I wait 1 seconds
+    Then I should be on "/"
     When I click "explorer" menu
     When I fill in "1465651642158264047" to "search input" field
     And I click "input search button"
@@ -27,13 +30,19 @@ Feature: Transactions page
     When I click "explorer" menu
     When I fill in "15610359283786884938L" to "search input" field
     And I click "input search button"
-    And I wait 1 seconds
+    And I wait 3 seconds
     Then I should see text "No activity yet" in "empty message" element
     When I clear "search bar input" field
     And I fill in "16313739661670634666L" to "search bar input" field
     When I click "search bar button"
     And I wait 1 seconds
     Then I should see 25 rows
+    When I click "explorer" menu
+    And I wait 1 seconds
+    And I click "search result"
+    Then I should be on "/explorer/accounts/16313739661670634666L"
+    When I click "send to address"
+    Then I should see "16313739661670634666L" in "recipient" field
     When I click "explorer" menu
     When I fill in "9938914350729699234" to "search input" field
     And I click "input search button"
